@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { StyleClassModule } from 'primeng/styleclass';
 import { AppConfigurator } from './app.configurator';
-import { LayoutService } from '@/app/layout/service/layout.service';
+import { LayoutService, LayoutConfig } from '@/app/layout/service/layout.service';
 
 @Component({
     selector: 'app-topbar',
@@ -87,7 +87,7 @@ export class AppTopbar {
     layoutService = inject(LayoutService);
 
     toggleDarkMode() {
-        this.layoutService.layoutConfig.update((state) => ({
+        this.layoutService.layoutConfig.update((state: LayoutConfig) => ({
             ...state,
             darkTheme: !state.darkTheme
         }));
